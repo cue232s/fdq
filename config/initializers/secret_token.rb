@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Fdq::Application.config.secret_token = '00ebf0577227f6ac4d2c3fbbed43edf1aa830b030cf2571564546b4ed0bbfa3e98098d33e872da36a523a75639fd857f250711563c062bc9311fc3dfe79bdf7c'
+Fdq::Application.config.secret_token = '1ea68f7b81c90ad511803140a6eedef994fd9e0f981b0fd93c3a5c68f3c0bec11df10321e1e2dbcce2d3dfec526969f68768e8f3b15de1f144d2010fd03aadce'
