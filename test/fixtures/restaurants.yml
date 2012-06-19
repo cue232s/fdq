@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-Blueberry Hill:
+BlueberryHill:
   name: Blueberry Hill
   street_address: 6504 Delmar Boulevard
   street_address_2: MyString
@@ -9,7 +9,7 @@ Blueberry Hill:
   description: Blueberry Hill is owned by Joe Edwards and Linda Edwards. They opened this St. Louis landmark on September 8, 1972. It’s a restaurant and music club filled with pop culture memorabilia including Chuck Berry, the Simpsons, the Beatles, Star Wars, jukeboxes, lunch boxes, and toys.
   phone: 3147272277
 
-Pi Loop:
+PiLoop:
   name: Pi Pizzeria
   street_address: 6144 Delmar Boulevard
   street_address_2: 
