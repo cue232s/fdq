@@ -4,4 +4,7 @@ class RestaurantTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  test "should show all restaurants" do
+  	assert Restaurant.exists?
+  end
 end
