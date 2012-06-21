@@ -2,3 +2,12 @@
 <p>Find Restaurants</p>
 
 <%= link_to "Local Restaurants", restaurants_path %>
+
+
+<ul>
+	<% @terms.each do |search_term| %>
+  
+		<li><%= search_term.name %></li>
+
+	<% end %>
+</ul

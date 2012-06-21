@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Terms = SearchTerm.create([{name: 'Pizza'}, {name: 'Chicken'}, {name: 'Burgers'}, {name: 'Chinese'}, {name: 'Thai'}])

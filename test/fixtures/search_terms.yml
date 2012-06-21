@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  name: Pizza
 
 two:
-  name: MyString
+  name: Burger
+
+three:
+  name: Steak
+
+four:
+  name: Chinese
