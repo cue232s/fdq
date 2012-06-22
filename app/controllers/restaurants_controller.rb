@@ -9,6 +9,17 @@ class RestaurantsController < ApplicationController
       format.json { render json: @restaurants }
     end
   end
+  
+  # GET /restaurants
+  # GET /restaurants.json
+  def search(search)
+    @restaurants = Restaurant.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @restaurants }
+    end
+  end
 
   # GET /restaurants/1
   # GET /restaurants/1.json
