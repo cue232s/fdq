@@ -34,6 +34,14 @@
   <b>Phone:</b>
   <%= @restaurant.phone %>
 </p>
+<p>
+  <b>tags:</b>
+  <ul>
+    <% @restaurant.tags.each do |t| %>
+      <li><%= t.name %> </li>
+    <% end %>
+  </ul>
+</p>
 
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
