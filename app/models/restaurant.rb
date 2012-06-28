@@ -4,7 +4,7 @@ class Restaurant < ActiveRecord::Base
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
 
-  attr_accessor :tag_names
+  attr_writer :tag_names
 
   def tag_names
     @tag_names || tags.map(&:name).join(', ')
@@ -14,6 +14,11 @@ class Restaurant < ActiveRecord::Base
   #	:reject_if => proc { |attrs| attrs.all? { |k, v| v.blank?}}
 
 after_save :assign_tags
+
+def self.search(search)
+  search_condition = "%" + search + "%"
+  find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
+end
 
 
 
