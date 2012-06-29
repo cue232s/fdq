@@ -2,8 +2,14 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
+    if params[:tag_id]
+    search_tag = params[:tag_id]
+    search_tag = Tag.find(search_tag)
+    @restaurants = Restaurant.search_by_tag search_tag
+    else
     @restaurants = Restaurant.all
-
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @restaurants }
@@ -12,11 +18,11 @@ class RestaurantsController < ApplicationController
   
   # GET /restaurants
   # GET /restaurants.json
-  def search(search)
-    @restaurants = Restaurant.all
+  def search(search_tag) #search_tag has to be an actual instance of Tag class.
+    @restaurants = Restaurant.search_by_tag search_tag
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html #index.html.erb
       format.json { render json: @restaurants }
     end
   end

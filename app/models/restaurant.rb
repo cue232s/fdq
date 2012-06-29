@@ -15,20 +15,21 @@ class Restaurant < ActiveRecord::Base
 
 after_save :assign_tags
 
-def self.search(search)
-  search_condition = "%" + search + "%"
-  find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
+# This method is resposible for finding every restaurant associated to a specified Tag object.
+def self.search_by_tag(search_tag) #search_tag must be an instance of the Tag class
+  @tag = search_tag
+  @Restaurants = @tag.restaurants #now pass an array of restaurants that associate this tag
 end
 
 
 
-  private
+private
 
-  def assign_tags
-  	if @tag_names
-  		self.tags = @tag_names.split( /, */ ).map do |name|
-  			Tag.find_or_create_by_name(name)
-      end
+def assign_tags
+	if @tag_names
+		self.tags = @tag_names.split( /, */ ).map do |name|
+			Tag.find_or_create_by_name(name)
     end
   end
+end
 end

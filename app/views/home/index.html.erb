@@ -6,8 +6,10 @@
 
 <ul>
 	<% @terms.each do |search_term| %>
-		<!-- creates a link for each search term, send a paramater of searchterm to restaurant#search action. -->
-		<li><%= link_to(search_term.name, :controller => "restaurants", :action => "index", :searchterm => search_term.name)%></li>
 
-	<% end %>
-</ul
+		<% @tag = Tag.find(:all, :conditions => ["name = ?", search_term.name.downcase ]).first %>
+		
+		<li> <%= link_to(search_term.name, {:controller => "restaurants", :action => "index", :tag_id => @tag}) %> </li>
+
+		<% end %>
+</ul>
