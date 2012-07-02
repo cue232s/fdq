@@ -2,6 +2,11 @@ Fdq::Application.routes.draw do
   get "home/index"
 
   resources :restaurants
+  resources :tags do 
+    member do
+      get 'show_restaurants'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

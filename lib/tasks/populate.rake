@@ -23,11 +23,21 @@ namespace :db do
       restaurant.phone = Faker::PhoneNumber.phone_number
     end
 
-    Tagging.populate 6 do |tg|
-      restaurants = Restaurant.all
-      tg.restaurant_id = restaurants[rand(restaurants.length)].id 
-      tag = Tag.all
-      tg.tag_id = tag[rand(tag.length)].id
+    Restaurant.all.each do |restaurant|
+      #Tagging.new({:restaurant_id => restaurant.id, :tag_id => Tag.all[rand(Tag.all.length)]})
+
+      #Tagging.where({:restaurant_id => restaurant.id, :tag_id => Tag.all[rand(Tag.all.length)]})
+
+
+    end
+
+    Tagging.populate Restaurant.all.size do |tg|
+      Restaurant.all.size each do |r|
+        restaurants = Restaurant.all
+        tg.restaurant_id = restaurants[rand(restaurants.length)].id 
+        tag = Tag.all
+        tg.tag_id = tag[rand(tag.length)].id
+      end
     end
 
   end

@@ -1,0 +1,26 @@
+tags#show.html.erb
+
+<h1>The Keyword <%= @tag.name %> has following <%= pluralize(@tag.restaurants.size, 'restaurant') %></h1>
+
+<div>Restaurants for with this tag:</div>
+<table>
+<th>
+	<tr>
+		<td> Restaurant </td>
+		<td> Other Tags </td>
+	</tr>
+</th>
+
+<% @restaurants.each do |restaurant| %>
+<tr>
+	<!-- iterate through all the restaurants associated
+	with the current tag. Then find all the tags that 
+	are associated with each restaurant. -->
+	<td><%= restaurant.name %></td>
+	<% restaurant.tags.each do |tag| %>
+		<td><%=  tag.name %></td>
+	<% end %>
+
+</tr>
+<% end %>
+</table>

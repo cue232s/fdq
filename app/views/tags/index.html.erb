@@ -1,0 +1,17 @@
+<table>
+<% @tags.each do |tag| %>
+<tr>
+	<td><%= tag.name %>  
+		<% if tag.restaurants.size > 0 %>
+		<% restaurants = [] %>
+
+		<% tag.restaurants.each { |e| restaurants << e.id} %>
+
+		| <%= link_to tag.restaurants.size, { :action=> 'show_restaurants', :ids => restaurants, :id => tag.id } %>
+
+		<% end %>
+	</td>
+
+</tr>
+<% end %>
+</tabel>
