@@ -1,19 +1,20 @@
 class TagsController < ApplicationController
 	def index
+
+
 		@tags = Tag.all
 
-		@tagged = []
+		if @tags 
+			@tagged = []
 
-		Tag.all.each do |t|
-
-			if !t.restaurants.nil?
-
-				@tagged << t
-
+			Tag.all.each do |t|
+				if !t.restaurants.nil?
+					@tagged << t
+				end
 			end
-
+		else 
+			flash.now[:error] = "There currently no tags that exist"
 		end
-
 
 	end
 	#this actions shows all the associated restaurants of a given Tag (keyword).
