@@ -1,5 +1,5 @@
-<% if flash[:error] %>
-<p class="error"><%= flash[:error] %></p>
+<% if flash.now[:error] %>
+<p class="error"><%= flash.now[:error] %></p>
 <% end %>
 <table>
 <% @tags.each do |tag| %>

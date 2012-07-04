@@ -4,16 +4,16 @@ class TagsController < ApplicationController
 
 		@tags = Tag.all
 
-		if @tags 
+		if @tags.size > 0 
 			@tagged = []
 
-			Tag.all.each do |t|
-				if !t.restaurants.nil?
+			@tags.each do |tag|
+				if !tag.restaurants.nil?
 					@tagged << t
 				end
 			end
 		else 
-			flash.now[:error] = "There currently no tags that exist"
+			flash.now[:error] = "There currently are no tags that exist"
 		end
 
 	end
