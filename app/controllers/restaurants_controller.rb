@@ -2,9 +2,9 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    if params[:tag_id]
-    search_tag = params[:tag_id]
-    search_tag = Tag.find(search_tag)
+    if params[:tag_name]
+    search_name = params[:tag_name]
+    search_tag = Tag.find(:all, :conditions => ["lower(name) = ?", search_name.downcase ]).first
     @restaurants = Restaurant.search_by_tag search_tag
     else
     @restaurants = Restaurant.all

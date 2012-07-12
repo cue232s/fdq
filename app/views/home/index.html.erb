@@ -6,10 +6,10 @@
 
 <ul>
 	<% @terms.each do |search_term| %>
-
-		<%= @tag = Tag.find(:all, :conditions => ["name = ?", search_term.name.downcase ]).first %>
 		
-		<li> <%= link_to(search_term.name, {:controller => "restaurants", :action => "index", :tag_id => @tag }) %> </li>
+		<li> <%= link_to(search_term.name, {:controller => "restaurants", :action => "index", :tag_name => search_term.name }) %> </li>
 
 		<% end %>
+
+	<%= debug(@terms.size) %>
 </ul>
